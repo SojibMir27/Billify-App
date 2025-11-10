@@ -30,17 +30,20 @@ const Navbar = () => {
       <li className="font-semibold">
         <NavLink to={"/bills"}>Bills</NavLink>
       </li>
-      <li className="font-semibold">
+      {/* <li className="font-semibold">
         <NavLink to={"/bill-details/:id"}>Bill Details</NavLink>
-      </li>
+      </li> */}
       <li className="font-semibold">
         <NavLink to={"/my-pay-bills"}>My Paid Bills</NavLink>
       </li>
-      <li className="font-semibold">
+      {/* <li className="font-semibold">
         <NavLink to={"/mypay-bills-details/:id"}>MyPaid Bills Details</NavLink>
-      </li>
+      </li> */}
       <li className="font-semibold">
         <NavLink to={"/add-bill"}>Add Bill</NavLink>
+      </li>
+      <li className="font-semibold">
+        <NavLink to={"/about"}>About</NavLink>
       </li>
     </>
   );

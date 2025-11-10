@@ -11,6 +11,7 @@ import AddBill from "../pages/AddBill";
 import PayBill from "../pages/PayBill";
 import MyPayBillDetails from "../pages/MyPayBillDetails";
 import UpdateBill from "../pages/UpdateBill";
+import About from "../pages/About";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
       {
         path: "/register",

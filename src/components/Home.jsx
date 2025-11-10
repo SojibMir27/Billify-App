@@ -126,7 +126,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Smart Bill Management Section */}
+      {/* smart bill management section */}
       <section className="my-20 py-5 w-11/12 mx-auto bg-sky-400/5 rounded-xl">
         <div className="w-11/12 mx-auto flex flex-col md:flex-row items-center gap-10">
           {/* Left Text */}
