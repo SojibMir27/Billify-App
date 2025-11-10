@@ -1,6 +1,8 @@
 import React from "react";
 import UseTitle from "../hooks/UseTitle";
 import BillCard from "./BillCard";
+import MyPayBillDetails from "./MyPayBillDetails";
+import MyPaidBillsCard from "./MyPaidBillsCard";
 
 const MyPayBills = () => {
   UseTitle("My-Bills || Billify");
@@ -17,13 +19,7 @@ const MyPayBills = () => {
         ))} */}
 
         {/* optional */}
-
-        <BillCard />
-        <BillCard />
-        <BillCard />
-        <BillCard />
-        <BillCard />
-        <BillCard />
+        <MyPaidBillsCard />
       </div>
     </>
   );

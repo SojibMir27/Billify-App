@@ -1,11 +1,7 @@
-import { Eye, Heart } from "lucide-react";
+import React from "react";
 import { Link } from "react-router";
 
-const BillCard = () => {
-  // {bill}
-  //   const { title, category, location, description, image, amount, date, _id } =
-  //     bill;
-
+const MyPaidBillsCard = () => {
   return (
     <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-500 rounded">
       <figure className="h-48 overflow-hidden">
@@ -31,7 +27,7 @@ const BillCard = () => {
 
         <div className="card-actions justify-between items-center mt-4">
           <Link
-            to={`/bill-details/:id`}
+            to={`/mypay-bills-details/:id`}
             className="btn text-white mt-4 rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300 w-full"
           >
             See Details
@@ -42,4 +38,4 @@ const BillCard = () => {
   );
 };
 
-export default BillCard;
+export default MyPaidBillsCard;

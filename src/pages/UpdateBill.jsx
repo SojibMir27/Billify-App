@@ -73,9 +73,9 @@ const UpdateBill = () => {
                   name="username"
                   className="input w-full"
                   placeholder="Your username"
-                  value="username"
                   // onChange={handleChange}
                   required
+                  defaultValue="update username"
                 />
 
                 {/* Address */}
@@ -88,6 +88,7 @@ const UpdateBill = () => {
                   // value={formData.address}
                   // onChange={handleChange}
                   required
+                  defaultValue="update address"
                 />
 
                 {/* Phone */}
@@ -100,6 +101,7 @@ const UpdateBill = () => {
                   // value={formData.phone}
                   // onChange={handleChange}
                   required
+                  defaultValue="update 017885-785448"
                 />
 
                 {/* Email */}
@@ -130,7 +132,7 @@ const UpdateBill = () => {
                   name="amount"
                   className="input w-full"
                   readOnly
-                  defaultValue={499.99}
+                  defaultValue={289.0}
                 />
 
                 <button type="submit" className="btn btn-neutral mt-4">
