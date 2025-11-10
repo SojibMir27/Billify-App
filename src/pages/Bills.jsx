@@ -8,7 +8,7 @@ const Bills = () => {
   const data = useLoaderData();
   return (
     <>
-      <div className="text-4xl text-center font-bold mb-10 mt-4">
+      <div className="text-4xl text-center font-bold mb-10 mt-5">
         {" "}
         All Bills
       </div>
