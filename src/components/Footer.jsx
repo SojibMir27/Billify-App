@@ -9,9 +9,9 @@ const Footer = () => {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
         {/* Brand + Menu */}
         <div>
-          <span className="text-xl font-bold text-gray-900 dark:text-gray-200">
+          <Link to={"/"} className="flex items-center gap-1 text-xl font-bold">
             Billify
-          </span>
+          </Link>
 
           <ul className="space-y-2 mt-4">
             <li>

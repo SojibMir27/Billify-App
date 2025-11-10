@@ -1,9 +1,6 @@
 import React from "react";
 import Banner from "./Banner";
 import UseTitle from "../hooks/UseTitle";
-import Spinner from "../pages/Spinner";
-import ErrorPage from "../pages/ErrorPage";
-import DisplayBillCard from "../pages/DisplayBillCard";
 import { Link } from "react-router";
 
 const Home = () => {
@@ -13,17 +10,10 @@ const Home = () => {
     <div>
       <Banner />
       {/* recent bill section */}
-      <section className="my-20 py-5 w-11/12 mx-auto bg-sky-400/5 rounded-xl">
+      <section className="my-5 py-10 w-11/12 mx-auto rounded-xl">
         <h2 className="text-center font-bold text-4xl mb-10">Recent Bills</h2>
 
-        <div className="grid grid-cols-1 mx-auto w-11/12 md:grid-cols-3 gap-3 mb-5">
-          <DisplayBillCard />
-          <DisplayBillCard />
-          <DisplayBillCard />
-          <DisplayBillCard />
-          <DisplayBillCard />
-          <DisplayBillCard />
-        </div>
+        <div className="grid grid-cols-1 mx-auto w-11/12 md:grid-cols-3 gap-3 mb-5"></div>
 
         {/* go to all bills */}
         <div className="flex justify-center items-center mx-auto mb-5">
@@ -37,7 +27,7 @@ const Home = () => {
       </section>
 
       {/* bill manegment setction  */}
-      <section className="my-20 py-5 w-11/12 mx-auto bg-sky-400/5 rounded-xl">
+      <section className="my-5 py-10 w-11/12 mx-auto rounded-xl">
         <div className="w-11/12 mx-auto">
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-3 text-pink-500/80 ">
             Tips for Managing Your Bills
@@ -85,7 +75,7 @@ const Home = () => {
       </section>
 
       {/* bills is important section */}
-      <section className="my-20 py-5 w-11/12 mx-auto bg-sky-400/5 rounded-xl">
+      <section className="my-5 py-10 w-11/12 mx-auto rounded-xl">
         <div className="w-11/12 mx-auto text-center">
           <h2 className="text-2xl md:text-4xl font-bold mb-4 text-pink-500/80 ">
             Why Managing Bills Is Important
@@ -127,7 +117,7 @@ const Home = () => {
       </section>
 
       {/* smart bill management section */}
-      <section className="my-20 py-5 w-11/12 mx-auto bg-sky-400/5 rounded-xl">
+      <section className="my-5 py-10 w-11/12 mx-auto rounded-xl">
         <div className="w-11/12 mx-auto flex flex-col md:flex-row items-center gap-10">
           {/* Left Text */}
           <div className="md:w-5/6">

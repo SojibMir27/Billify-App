@@ -1,56 +1,104 @@
-import React, { useRef } from "react";
+import React, { use, useRef } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
 
-const PayBill = () => {
-  //   const [bids, setBids] = useState([]);
+const PayBill = ({ isDisabled, bill }) => {
   const bidModalRef = useRef(null);
-  //   const { user } = use(AuthContext);
+  const { user } = use(AuthContext);
+  const { _id, amount } = bill;
+  const navigate = useNavigate();
 
   const handleBidModalOpen = () => {
     bidModalRef.current.showModal();
   };
 
-  //   const handleBidSubmit = (e) => {
-  //     e.preventDefault();
-  //     const name = e.target.name.value;
-  //     const email = e.target.email.value;
-  //     const bid = e.target.bid.value;
+  // const handleBillPaySubmit = (e) => {
+  //   e.preventDefault();
+  //   const name = e.target.username.value;
+  //   const address = e.target.address.value;
+  //   const phone = e.target.phone.value;
+  //   const email = e.target.email.value;
+  //   const billId = e.target.billId.value;
+  //   const amount = e.target.amount.value;
+  //   console.log({ name,  phone, email, billId, amount });
 
-  //     // const newBid = {
-  //     //   product: productId,
-  //     //   buyer_name: name,
-  //     //   buyer_email: email,
-  //     //   buyer_image: user?.photoURL,
-  //     //   bid_price: bid,
-  //     //   status: "pending",
-  //     // };
+  //   //     // const newBid = {
+  //   //     //   product: productId,
+  //   //     //   buyer_name: name,
+  //   //     //   buyer_email: email,
+  //   //     //   buyer_image: user?.photoURL,
+  //   //     //   bid_price: bid,
+  //   //     //   status: "pending",
+  //   //     // };
 
-  //     fetch("http://localhost:5000/bids", {
-  //       method: "POST",
-  //       headers: {
-  //         "content-type": "application/json",
-  //       },
-  //       body: JSON.stringify(newBid),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         if (data.insertedId) {
-  //           bidModalRef.current.close();
-  //           Swal.fire({
-  //             position: "top-end",
-  //             icon: "success",
-  //             title: "Your bid has been placed.",
-  //             showConfirmButton: false,
-  //             timer: 1500,
-  //           });
-  //           // add the new bid to the state
-  //           newBid._id = data.insertedId;
-  //           const newBids = [...bids, newBid];
-  //           newBids.sort((a, b) => b.bid_price - a.bid_price);
-  //           setBids(newBids);
-  //         }
-  //       });
-  //   };
+  //   //     fetch("http://localhost:5000/bids", {
+  //   //       method: "POST",
+  //   //       headers: {
+  //   //         "content-type": "application/json",
+  //   //       },
+  //   //       body: JSON.stringify(newBid),
+  //   //     })
+  //   //       .then((res) => res.json())
+  //   //       .then((data) => {
+  //   //         if (data.insertedId) {
+  //   //           bidModalRef.current.close();
+  //   //           Swal.fire({
+  //   //             position: "top-end",
+  //   //             icon: "success",
+  //   //             title: "Your bid has been placed.",
+  //   //             showConfirmButton: false,
+  //   //             timer: 1500,
+  //   //           });
+  //   //           // add the new bid to the state
+  //   //           newBid._id = data.insertedId;
+  //   //           const newBids = [...bids, newBid];
+  //   //           newBids.sort((a, b) => b.bid_price - a.bid_price);
+  //   //           setBids(newBids);
+  //   //         }
+  //   //       });
+  // };
+
+  const handleBillPaySubmit = (e) => {
+    e.preventDefault();
+    const name = e.target.username.value;
+    const address = e.target.address.value;
+    const phone = e.target.phone.value;
+    const email = e.target.email.value;
+    const amount = e.target.amount.value;
+
+    const newPayData = {
+      username: name,
+      Phone: phone,
+      Address: address,
+      amount: amount,
+      email: email,
+      date: new Date().toLocaleDateString("en-GB"),
+    };
+
+    fetch("http://localhost:5000/my-bills", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newPayData),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your payment has been successful!.",
+          showConfirmButton: false,
+          timer: 2500,
+        });
+        navigate("/my-pay-bills");
+      })
+      .catch((err) => {
+        toast.error(err);
+      });
+  };
 
   return (
     <div className="mt-10">
@@ -64,7 +112,7 @@ const PayBill = () => {
               Bill Pay Now!
             </h3>
 
-            <form>
+            <form onSubmit={handleBillPaySubmit}>
               <fieldset className="fieldset">
                 {/* Username */}
                 <label>Username</label>
@@ -73,8 +121,7 @@ const PayBill = () => {
                   name="username"
                   className="input w-full"
                   placeholder="Your username"
-                  defaultValue={"username"}
-                  // onChange={handleChange}
+                  defaultValue={user.displayName}
                 />
 
                 {/* Address */}
@@ -84,9 +131,7 @@ const PayBill = () => {
                   name="address"
                   className="input w-full"
                   placeholder="Your address"
-                  defaultValue={"address"}
-                  // value={formData.address}
-                  // onChange={handleChange}
+                  defaultValue={"Dhaka, Bangladesh"}
                   required
                 />
 
@@ -97,9 +142,7 @@ const PayBill = () => {
                   name="phone"
                   className="input w-full"
                   placeholder="Your phone number"
-                  defaultValue="+8801885-785448"
-                  // value={formData.phone}
-                  // onChange={handleChange}
+                  defaultValue={"+8801885-785448"}
                   required
                 />
 
@@ -110,8 +153,7 @@ const PayBill = () => {
                   name="email"
                   className="input w-full"
                   readOnly
-                  // defaultValue={user?.email || ""}
-                  defaultValue="byteprime2025@gmail.com"
+                  defaultValue={user?.email || ""}
                 />
 
                 {/* Bill ID */}
@@ -121,7 +163,7 @@ const PayBill = () => {
                   name="billId"
                   className="input w-full"
                   readOnly
-                  defaultValue="BILL123456"
+                  defaultValue={_id}
                 />
 
                 {/* Amount */}
@@ -131,18 +173,17 @@ const PayBill = () => {
                   name="amount"
                   className="input w-full"
                   readOnly
-                  defaultValue={499.99}
+                  defaultValue={amount}
                 />
 
-                <button type="submit" className="btn btn-neutral mt-4">
-                  Submit Payment
+                <button className="btn text-white mt-4 rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300 w-full">
+                  Send Payment
                 </button>
               </fieldset>
             </form>
 
             <div className="modal-action">
               <form method="dialog">
-                {/* if there is a button in form, it will close the modal */}
                 <button className="btn">Cancel</button>
               </form>
             </div>
@@ -150,18 +191,16 @@ const PayBill = () => {
         </dialog>
       </div>
 
-      {/* Update Bill */}
+      {/* Update Bill  */}
       <button
         onClick={handleBidModalOpen}
-        className="btn w-full md:w-4/12 text-white rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300"
+        disabled={isDisabled}
+        className={`btn w-full md:w-4/12 text-white rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300 ${
+          isDisabled ? "btn-disabled opacity-30 cursor-not-allowed" : ""
+        }`}
       >
         Bill Pay Now
       </button>
-
-      {/* Delete Bill
-      <button className="btn w-full md:w-4/12 text-white rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300 mt-2 md:mt-0 md:ml-5">
-        Delete Now
-      </button> */}
     </div>
   );
 };

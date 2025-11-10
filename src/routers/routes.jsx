@@ -7,17 +7,18 @@ import MyPayBills from "../pages/MyPayBills";
 import PrivateRoute from "./PrivetRoute";
 import Bills from "../pages/Bills";
 import BillDetails from "../pages/BillDetails";
-import AddBill from "../pages/AddBill";
 import PayBill from "../pages/PayBill";
 import MyPayBillDetails from "../pages/MyPayBillDetails";
 import UpdateBill from "../pages/UpdateBill";
 import About from "../pages/About";
+import DisplayBillCard from "../pages/DisplayBillCard";
+import Spinner from "../pages/Spinner";
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: MainLayout,
-    hydrateFallbackElement: <p>Loading........</p>,
+    hydrateFallbackElement: <Spinner />,
     children: [
       {
         index: true,
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
       {
         path: "/bills",
         element: <Bills />,
+        loader: () => fetch("http://localhost:5000/bills"),
       },
       {
         path: "/bill-details/:id",
@@ -46,12 +48,14 @@ const router = createBrowserRouter([
             <BillDetails />
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/bills/${params.id}`),
       },
       {
-        path: "/add-bill",
+        path: "/display-bill-card",
         element: (
           <PrivateRoute>
-            <AddBill />
+            <DisplayBillCard />
           </PrivateRoute>
         ),
       },
@@ -78,6 +82,8 @@ const router = createBrowserRouter([
             <MyPayBillDetails />
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/my-bills/${params.id}`),
       },
       {
         path: "/my-bill-update/:id",

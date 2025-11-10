@@ -1,10 +1,14 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../context/AuthContext";
 
-const UpdateBill = () => {
+const UpdateBill = ({ bill }) => {
   //   const [bids, setBids] = useState([]);
   const bidModalRef = useRef(null);
   //   const { user } = use(AuthContext);
+
+  const { username, Phone, Address, amount, _id } = bill;
+  const { user } = useContext(AuthContext);
 
   const handleBidModalOpen = () => {
     bidModalRef.current.showModal();
@@ -52,8 +56,12 @@ const UpdateBill = () => {
   //       });
   //   };
 
+  const handleUpdateBill = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <div className="mt-10">
+    <div>
       <div>
         <dialog
           ref={bidModalRef}
@@ -64,7 +72,7 @@ const UpdateBill = () => {
               Bill Update Now!
             </h3>
 
-            <form>
+            <form onSubmit={handleUpdateBill}>
               <fieldset className="fieldset">
                 {/* Username */}
                 <label>Username</label>
@@ -73,9 +81,8 @@ const UpdateBill = () => {
                   name="username"
                   className="input w-full"
                   placeholder="Your username"
-                  // onChange={handleChange}
                   required
-                  defaultValue="update username"
+                  defaultValue={username}
                 />
 
                 {/* Address */}
@@ -85,10 +92,8 @@ const UpdateBill = () => {
                   name="address"
                   className="input w-full"
                   placeholder="Your address"
-                  // value={formData.address}
-                  // onChange={handleChange}
                   required
-                  defaultValue="update address"
+                  defaultValue={Address}
                 />
 
                 {/* Phone */}
@@ -98,10 +103,8 @@ const UpdateBill = () => {
                   name="phone"
                   className="input w-full"
                   placeholder="Your phone number"
-                  // value={formData.phone}
-                  // onChange={handleChange}
                   required
-                  defaultValue="update 017885-785448"
+                  defaultValue={Phone}
                 />
 
                 {/* Email */}
@@ -111,8 +114,7 @@ const UpdateBill = () => {
                   name="email"
                   className="input w-full"
                   readOnly
-                  // defaultValue={user?.email || ""}
-                  defaultValue="byteprime2025@gmail.com"
+                  defaultValue={user?.email || ""}
                 />
 
                 {/* Bill ID */}
@@ -122,7 +124,7 @@ const UpdateBill = () => {
                   name="billId"
                   className="input w-full"
                   readOnly
-                  defaultValue="BILL123456"
+                  defaultValue={_id}
                 />
 
                 {/* Amount */}
@@ -132,10 +134,13 @@ const UpdateBill = () => {
                   name="amount"
                   className="input w-full"
                   readOnly
-                  defaultValue={289.0}
+                  defaultValue={amount}
                 />
 
-                <button type="submit" className="btn btn-neutral mt-4">
+                <button
+                  type="submit"
+                  className="btn text-white mt-4 rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300 w-full"
+                >
                   Update Bill
                 </button>
               </fieldset>
@@ -150,17 +155,21 @@ const UpdateBill = () => {
           </div>
         </dialog>
       </div>
-      {/* Update Bill */}
+
+      {/* BUTTON */}
+      <div className="flex justify-around mt-4">
+        {/* Update Bill */}
       <button
         onClick={handleBidModalOpen}
-        className="btn w-full md:w-4/12 text-white rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300"
+        className="btn md:w-2/6 text-white rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300"
       >
         Update Now
       </button>
       {/* Delete Bill */}
-      <button className="btn w-full md:w-4/12 text-white rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300 mt-2 md:mt-0 md:ml-5">
+      <button className="btn md:w-2/6 text-white rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300">
         Delete Now
       </button>
+      </div>
     </div>
   );
 };
