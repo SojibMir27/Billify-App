@@ -1,12 +1,12 @@
 import React, { useContext, useRef } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 const UpdateBill = ({ bill }) => {
-  //   const [bids, setBids] = useState([]);
   const bidModalRef = useRef(null);
-  //   const { user } = use(AuthContext);
-
+  const navigate = useNavigate();
   const { username, Phone, Address, amount, _id } = bill;
   const { user } = useContext(AuthContext);
 
@@ -14,50 +14,73 @@ const UpdateBill = ({ bill }) => {
     bidModalRef.current.showModal();
   };
 
-  //   const handleBidSubmit = (e) => {
-  //     e.preventDefault();
-  //     const name = e.target.name.value;
-  //     const email = e.target.email.value;
-  //     const bid = e.target.bid.value;
-
-  //     // const newBid = {
-  //     //   product: productId,
-  //     //   buyer_name: name,
-  //     //   buyer_email: email,
-  //     //   buyer_image: user?.photoURL,
-  //     //   bid_price: bid,
-  //     //   status: "pending",
-  //     // };
-
-  //     fetch("http://localhost:5000/bids", {
-  //       method: "POST",
-  //       headers: {
-  //         "content-type": "application/json",
-  //       },
-  //       body: JSON.stringify(newBid),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         if (data.insertedId) {
-  //           bidModalRef.current.close();
-  //           Swal.fire({
-  //             position: "top-end",
-  //             icon: "success",
-  //             title: "Your bid has been placed.",
-  //             showConfirmButton: false,
-  //             timer: 1500,
-  //           });
-  //           // add the new bid to the state
-  //           newBid._id = data.insertedId;
-  //           const newBids = [...bids, newBid];
-  //           newBids.sort((a, b) => b.bid_price - a.bid_price);
-  //           setBids(newBids);
-  //         }
-  //       });
-  //   };
-
   const handleUpdateBill = (e) => {
     e.preventDefault();
+    const name = e.target.username.value;
+    const address = e.target.address.value;
+    const phone = e.target.phone.value;
+
+    const newUpdateBillsData = {
+      username: name,
+      Phone: phone,
+      Address: address,
+      date: new Date().toLocaleDateString("en-GB"),
+    };
+
+    fetch(`http://localhost:5000/my-bills/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newUpdateBillsData),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your bill has been updated!.",
+          showConfirmButton: false,
+          timer: 2500,
+        });
+        navigate("/my-pay-bills");
+      })
+      .catch((err) => {
+        toast.error(err);
+      });
+  };
+
+  const handleDeleteBill = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/my-bills/${_id}`, {
+          method: "DELETE",
+          headers: {
+            "content-type": "application/json",
+          },
+        })
+          .then((res) => res.json())
+          .then(() => {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+            navigate("/my-pay-bills");
+          })
+          .catch((err) => {
+            toast.error(err);
+          });
+      }
+    });
   };
 
   return (
@@ -159,16 +182,19 @@ const UpdateBill = ({ bill }) => {
       {/* BUTTON */}
       <div className="flex justify-around mt-4">
         {/* Update Bill */}
-      <button
-        onClick={handleBidModalOpen}
-        className="btn md:w-2/6 text-white rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300"
-      >
-        Update Now
-      </button>
-      {/* Delete Bill */}
-      <button className="btn md:w-2/6 text-white rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300">
-        Delete Now
-      </button>
+        <button
+          onClick={handleBidModalOpen}
+          className="btn md:w-2/6 text-white rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300"
+        >
+          Update Now
+        </button>
+        {/* Delete Bill */}
+        <button
+          onClick={handleDeleteBill}
+          className="btn md:w-2/6 text-white rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300"
+        >
+          Delete Now
+        </button>
       </div>
     </div>
   );

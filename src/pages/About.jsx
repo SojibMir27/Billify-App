@@ -1,8 +1,10 @@
 // File: AboutSection.jsx
 import React from "react";
 import { motion } from "framer-motion";
+import UseTitle from "../hooks/UseTitle";
 
 const About = () => {
+  UseTitle("About || Billify");
   return (
     <div className="w-11/12 flex flex-col items-center justify-center mx-auto py-35">
       <motion.div

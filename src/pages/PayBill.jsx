@@ -14,52 +14,6 @@ const PayBill = ({ isDisabled, bill }) => {
     bidModalRef.current.showModal();
   };
 
-  // const handleBillPaySubmit = (e) => {
-  //   e.preventDefault();
-  //   const name = e.target.username.value;
-  //   const address = e.target.address.value;
-  //   const phone = e.target.phone.value;
-  //   const email = e.target.email.value;
-  //   const billId = e.target.billId.value;
-  //   const amount = e.target.amount.value;
-  //   console.log({ name,  phone, email, billId, amount });
-
-  //   //     // const newBid = {
-  //   //     //   product: productId,
-  //   //     //   buyer_name: name,
-  //   //     //   buyer_email: email,
-  //   //     //   buyer_image: user?.photoURL,
-  //   //     //   bid_price: bid,
-  //   //     //   status: "pending",
-  //   //     // };
-
-  //   //     fetch("http://localhost:5000/bids", {
-  //   //       method: "POST",
-  //   //       headers: {
-  //   //         "content-type": "application/json",
-  //   //       },
-  //   //       body: JSON.stringify(newBid),
-  //   //     })
-  //   //       .then((res) => res.json())
-  //   //       .then((data) => {
-  //   //         if (data.insertedId) {
-  //   //           bidModalRef.current.close();
-  //   //           Swal.fire({
-  //   //             position: "top-end",
-  //   //             icon: "success",
-  //   //             title: "Your bid has been placed.",
-  //   //             showConfirmButton: false,
-  //   //             timer: 1500,
-  //   //           });
-  //   //           // add the new bid to the state
-  //   //           newBid._id = data.insertedId;
-  //   //           const newBids = [...bids, newBid];
-  //   //           newBids.sort((a, b) => b.bid_price - a.bid_price);
-  //   //           setBids(newBids);
-  //   //         }
-  //   //       });
-  // };
-
   const handleBillPaySubmit = (e) => {
     e.preventDefault();
     const name = e.target.username.value;

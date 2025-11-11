@@ -7,6 +7,13 @@ const MyPaidBillsCard = ({ bill }) => {
   return (
     <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-500 rounded">
       <div className="card-body">
+        <figure className="h-48 overflow-hidden rounded-xl">
+          <img
+            src={"https://i.ibb.co/Q3ScKmQ2/download.jpg"}
+            alt={""}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          />
+        </figure>
         <h2 className="card-title text-center md:text-left">
           <span className="text-lg font-semibold">Bill ID :</span> {_id}
         </h2>

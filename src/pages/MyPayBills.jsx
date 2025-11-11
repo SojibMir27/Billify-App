@@ -2,17 +2,17 @@ import React, { use, useEffect, useState } from "react";
 import UseTitle from "../hooks/UseTitle";
 import { AuthContext } from "../context/AuthContext";
 import MyPaidBillsCard from "./MyPaidBillsCard";
+import Spinner from "./Spinner";
 
 const MyPayBills = () => {
   UseTitle("My-Bills || Billify");
 
-  const [bills, setBills] = useState([]); // store API data
-  const [loading, setLoading] = useState(true); // loading indicator
-  const [, setError] = useState(null); // error state
+  const [bills, setBills] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [, setError] = useState(null);
   const { user, loading: userloading } = use(AuthContext);
 
   useEffect(() => {
-    // Define async function inside useEffect
     async function fetchUsers() {
       try {
         const response = await fetch(
@@ -30,26 +30,33 @@ const MyPayBills = () => {
       }
     }
 
-    fetchUsers(); // call the async function
-  }, [user]); // Empty dependency array -> runs only once after component mounts
+    fetchUsers();
+  }, [user]);
 
-  // UI rendering logic
-  if (loading || userloading) return <p>Loading users... </p>;
+  if (loading || userloading) return <Spinner />;
 
   return (
     <>
-      <div className="text-4xl text-center font-bold mb-10 mt-5">
-        {" "}
-        My Pay Bills{" "}
-      </div>
-
-      <div className="grid grid-cols-1 mx-auto w-11/12 md:grid-cols-3 gap-3 mb-5">
-        {bills.map((bill) => (
-          <MyPaidBillsCard key={bill._id} bill={bill} />
-        ))}
-
-        {/* optional */}
-        {/* <MyPaidBillsCard /> */}
+      <div>
+        {bills?.length === 0 ? (
+          <div className="flex w-11/12 mx-auto justify-center items-center py-65 md:py-50">
+            <div className="bg-gradient-to-r from-purple-700 to-pink-700 text-white rounded-3xl shadow-2xl p-10 w-full max-w-md text-center animate-[fadeIn_0.6s_ease-out, floating_3s_ease-in-out_infinite]">
+              <h2 className="text-3xl font-bold drop-shadow mb-3 animate-bounce">
+                No Data Found
+              </h2>
+              <p className="text-sm opacity-90 mb-3">
+                Looks like there’s nothing here right now…
+              </p>
+              <div className="mt-4 text-4xl animate-pulse">😢</div>
+            </div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 mx-auto w-11/12 md:grid-cols-3 gap-3 my-6">
+            {bills.map((bill) => (
+              <MyPaidBillsCard key={bill._id} bill={bill} />
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

@@ -1,10 +1,17 @@
-import React from "react";
+import React, { use } from "react";
 import Banner from "./Banner";
 import UseTitle from "../hooks/UseTitle";
 import { Link } from "react-router";
+import Spinner from "../pages/Spinner";
+import { AuthContext } from "../context/AuthContext";
 
 const Home = () => {
   UseTitle("Deshboard || Billify");
+  const { loading } = use(AuthContext);
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   return (
     <div>

@@ -7,9 +7,9 @@ import Navbar from "../components/Navbar";
 const MainLayout = () => {
   return (
     <>
-      <div className="max-w-7xl mx-auto ">
+      <div className="max-w-7xl mx-auto">
         <Navbar />
-        <main className="">
+        <main className="min-h-screen">
           <Outlet />
         </main>
         <Footer />
