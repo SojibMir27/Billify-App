@@ -1,4 +1,3 @@
-// File: AboutSection.jsx
 import React from "react";
 import { motion } from "framer-motion";
 import UseTitle from "../hooks/UseTitle";

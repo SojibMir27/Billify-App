@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { motion } from "framer-motion";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -7,7 +8,13 @@ import { Link } from "react-router";
 
 const Banner = ({ data }) => {
   return (
-    <div className="relative w-11/12 md:w-10/12 mx-auto rounded-xl overflow-hidden my-10">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="relative w-11/12 md:w-10/12 mx-auto rounded-xl overflow-hidden my-10"
+    >
       {/* Button */}
       <div className="swiper-button-prev custom-prev">
         <img
@@ -65,7 +72,7 @@ const Banner = ({ data }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </motion.div>
   );
 };
 

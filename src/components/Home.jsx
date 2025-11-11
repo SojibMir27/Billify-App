@@ -6,6 +6,7 @@ import Spinner from "../pages/Spinner";
 import { AuthContext } from "../context/AuthContext";
 import DisplayBillCard from "../pages/DisplayBillCard";
 
+
 const Home = () => {
   UseTitle("Deshboard || Billify");
   const { loading } = use(AuthContext);
