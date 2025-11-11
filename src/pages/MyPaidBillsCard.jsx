@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router";
 
 const MyPaidBillsCard = ({ bill }) => {
-  const { username, Phone, Address, amount, date, _id } = bill;
+  const { username, Phone, Address, amount, date, _id, title } = bill;
+  console.log(title)
 
   return (
     <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-500 rounded">
@@ -18,26 +19,36 @@ const MyPaidBillsCard = ({ bill }) => {
             Bill ID : {_id}
           </span>
         </figure>
-        
+
+        <h2 className="card-title text-center md:text-left">
+          <span className="text-lg font-semibold">Bill Name :</span> {title}
+        </h2>
+
         <h2 className="card-title text-center md:text-left">
           <span className="text-lg font-semibold">Bill ID :</span> {_id}
         </h2>
+
         <h2 className="card-title text-center md:text-left">
           <span className="text-lg font-semibold">Name :</span> {username}
         </h2>
+
         <h2 className="text-xs rounded-full">
           <span className="text-lg font-semibold bg-none">Phone :</span>{" "}
           <span className="badge bg-pink-900/40">{Phone}</span>
         </h2>
+
         <p className="line-clamp-2">
           <span className="text-lg font-semibold">Location :</span> {Address}
         </p>
+
         <p className="font-semibold">
           <span className="text-lg font-semibold">Amount :</span> {amount} (BDT)
         </p>
+
         <p className="text-sm">
           <span className="text-lg font-semibold">Date :</span> {date}
         </p>
+
         <div className="card-actions justify-between items-center mt-4">
           <Link
             to={`/mypay-bills-details/${_id}`}

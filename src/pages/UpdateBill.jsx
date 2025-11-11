@@ -7,7 +7,7 @@ import { useNavigate } from "react-router";
 const UpdateBill = ({ bill }) => {
   const bidModalRef = useRef(null);
   const navigate = useNavigate();
-  const { username, Phone, Address, amount, _id } = bill;
+  const { username, Phone, Address, amount, _id, title } = bill;
   const { user } = useContext(AuthContext);
 
   const handleBidModalOpen = () => {
@@ -128,6 +128,16 @@ const UpdateBill = ({ bill }) => {
                   placeholder="Your phone number"
                   required
                   defaultValue={Phone}
+                />
+
+                {/* Bill Name */}
+                <label>Bill Name</label>
+                <input
+                  type="text"
+                  name="title"
+                  className="input w-full rounded focus:border-0 focus:outline-sky-300"
+                  readOnly
+                  defaultValue={title}
                 />
 
                 {/* Email */}

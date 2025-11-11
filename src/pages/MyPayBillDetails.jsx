@@ -5,11 +5,10 @@ import jsPDF from "jspdf";
 
 const MyPayBillDetails = () => {
   const bill = useLoaderData();
-  const { username, Phone, Address, amount, date, _id } = bill;
+  const { username, Phone, Address, amount, date, _id ,title} = bill;
 
   const handleDownloadPDF = () => {
     const pdf = new jsPDF();
-
     const now = new Date();
     const currentDateTime = now.toLocaleString();
 
@@ -65,9 +64,14 @@ const MyPayBillDetails = () => {
           </span>
         </figure>
 
-        <h2 className="card-title mt-2 text-center">
+        <p className="text-center">
+          <span className="font-semibold">Bill Name:</span> {title}
+        </p>
+        
+        <p className=" text-center">
           <span className="font-semibold">Name:</span> {username}
-        </h2>
+        </p>
+        
         <p className="text-center">
           <span className="font-semibold">Phone:</span> {Phone}
         </p>

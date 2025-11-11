@@ -7,8 +7,9 @@ import toast from "react-hot-toast";
 const PayBill = ({ isDisabled, bill }) => {
   const bidModalRef = useRef(null);
   const { user } = use(AuthContext);
-  const { _id, amount } = bill;
+  const { _id, amount, title } = bill;
   const navigate = useNavigate();
+  console.log(title);
 
   const handleBidModalOpen = () => {
     bidModalRef.current.showModal();
@@ -27,6 +28,7 @@ const PayBill = ({ isDisabled, bill }) => {
       Phone: phone,
       Address: address,
       amount: amount,
+      title: title,
       email: email,
       date: new Date().toLocaleDateString("en-GB"),
     };
@@ -98,6 +100,16 @@ const PayBill = ({ isDisabled, bill }) => {
                   placeholder="Your phone number"
                   defaultValue={"+8801885-785448"}
                   required
+                />
+
+                {/* Bill Name */}
+                <label>Bill Name</label>
+                <input
+                  type="text"
+                  name="title"
+                  className="input w-full rounded focus:border-0 focus:outline-sky-300"
+                  readOnly
+                  defaultValue={title}
                 />
 
                 {/* Email */}
