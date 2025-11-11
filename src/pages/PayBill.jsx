@@ -73,7 +73,7 @@ const PayBill = ({ isDisabled, bill }) => {
                 <input
                   type="text"
                   name="username"
-                  className="input w-full"
+                  className="input w-full rounded focus:border-0 focus:outline-sky-300"
                   placeholder="Your username"
                   defaultValue={user.displayName}
                 />
@@ -83,7 +83,7 @@ const PayBill = ({ isDisabled, bill }) => {
                 <input
                   type="text"
                   name="address"
-                  className="input w-full"
+                  className="input w-full rounded focus:border-0 focus:outline-sky-300"
                   placeholder="Your address"
                   defaultValue={"Dhaka, Bangladesh"}
                   required
@@ -94,7 +94,7 @@ const PayBill = ({ isDisabled, bill }) => {
                 <input
                   type="tel"
                   name="phone"
-                  className="input w-full"
+                  className="input w-full rounded focus:border-0 focus:outline-sky-300"
                   placeholder="Your phone number"
                   defaultValue={"+8801885-785448"}
                   required
@@ -105,7 +105,7 @@ const PayBill = ({ isDisabled, bill }) => {
                 <input
                   type="email"
                   name="email"
-                  className="input w-full"
+                  className="input w-full rounded focus:border-0 focus:outline-sky-300"
                   readOnly
                   defaultValue={user?.email || ""}
                 />
@@ -115,7 +115,7 @@ const PayBill = ({ isDisabled, bill }) => {
                 <input
                   type="text"
                   name="billId"
-                  className="input w-full"
+                  className="input w-full rounded focus:border-0 focus:outline-sky-300"
                   readOnly
                   defaultValue={_id}
                 />
@@ -125,12 +125,12 @@ const PayBill = ({ isDisabled, bill }) => {
                 <input
                   type="number"
                   name="amount"
-                  className="input w-full"
+                  className="input w-full rounded focus:border-0 focus:outline-sky-300"
                   readOnly
                   defaultValue={amount}
                 />
 
-                <button className="btn text-white mt-4 rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300 w-full">
+                <button className="btn text-white mt-4 rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300 w-full rounded focus:border-0 focus:outline-sky-300">
                   Send Payment
                 </button>
               </fieldset>
@@ -149,7 +149,7 @@ const PayBill = ({ isDisabled, bill }) => {
       <button
         onClick={handleBidModalOpen}
         disabled={isDisabled}
-        className={`btn w-full md:w-4/12 text-white rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300 ${
+        className={`btn w-full rounded focus:border-0 focus:outline-sky-300 md:w-4/12 text-white rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300 ${
           isDisabled ? "btn-disabled opacity-30 cursor-not-allowed" : ""
         }`}
       >

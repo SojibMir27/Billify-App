@@ -51,7 +51,7 @@ const MyPayBills = () => {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 mx-auto w-11/12 md:grid-cols-3 gap-3 my-2">
+          <div className="grid grid-cols-1 mx-auto w-11/12 md:grid-cols-3 gap-3 my-6">
             {bills.map((bill) => (
               <MyPaidBillsCard key={bill._id} bill={bill} />
             ))}

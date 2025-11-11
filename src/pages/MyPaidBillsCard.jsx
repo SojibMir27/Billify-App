@@ -7,13 +7,18 @@ const MyPaidBillsCard = ({ bill }) => {
   return (
     <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-500 rounded">
       <div className="card-body">
-        <figure className="h-48 overflow-hidden rounded-xl">
+        <figure className="relative h-48 overflow-hidden rounded-xl flex justify-center items-center">
           <img
-            src={"https://i.ibb.co/Q3ScKmQ2/download.jpg"}
-            alt={""}
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            src={"https://i.ibb.co.com/35R6DdLM/paidbills.jpg"}
+            alt="Bill Details"
+            className="w-full h-full object-cover hover:scale-135 transition-transform duration-300 opacity-50"
           />
+          {/* Bill ID Overlay Center */}
+          <span className="absolute bg-red-600 text-white text-sm font-bold px-4 py-2 mt-35 rounded shadow-lg backdrop-blur-sm hover:scale-65 transition-transform duration-300">
+            Bill ID : {_id}
+          </span>
         </figure>
+        
         <h2 className="card-title text-center md:text-left">
           <span className="text-lg font-semibold">Bill ID :</span> {_id}
         </h2>

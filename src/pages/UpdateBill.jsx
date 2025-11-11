@@ -102,7 +102,7 @@ const UpdateBill = ({ bill }) => {
                 <input
                   type="text"
                   name="username"
-                  className="input w-full"
+                  className="input w-full rounded focus:border-0 focus:outline-sky-300"
                   placeholder="Your username"
                   required
                   defaultValue={username}
@@ -113,7 +113,7 @@ const UpdateBill = ({ bill }) => {
                 <input
                   type="text"
                   name="address"
-                  className="input w-full"
+                  className="input w-full rounded focus:border-0 focus:outline-sky-300"
                   placeholder="Your address"
                   required
                   defaultValue={Address}
@@ -124,7 +124,7 @@ const UpdateBill = ({ bill }) => {
                 <input
                   type="tel"
                   name="phone"
-                  className="input w-full"
+                  className="input w-full rounded focus:border-0 focus:outline-sky-300"
                   placeholder="Your phone number"
                   required
                   defaultValue={Phone}
@@ -135,7 +135,7 @@ const UpdateBill = ({ bill }) => {
                 <input
                   type="email"
                   name="email"
-                  className="input w-full"
+                  className="input w-full rounded focus:border-0 focus:outline-sky-300"
                   readOnly
                   defaultValue={user?.email || ""}
                 />
@@ -145,7 +145,7 @@ const UpdateBill = ({ bill }) => {
                 <input
                   type="text"
                   name="billId"
-                  className="input w-full"
+                  className="input w-full rounded focus:border-0 focus:outline-sky-300"
                   readOnly
                   defaultValue={_id}
                 />
@@ -155,7 +155,7 @@ const UpdateBill = ({ bill }) => {
                 <input
                   type="number"
                   name="amount"
-                  className="input w-full"
+                  className="input w-full rounded focus:border-0 focus:outline-sky-300"
                   readOnly
                   defaultValue={amount}
                 />
@@ -180,11 +180,11 @@ const UpdateBill = ({ bill }) => {
       </div>
 
       {/* BUTTON */}
-      <div className="flex justify-around mt-4">
+      <div className="flex justify-center items-center mt-4">
         {/* Update Bill */}
         <button
           onClick={handleBidModalOpen}
-          className="btn md:w-2/6 text-white rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300"
+          className="btn md:w-2/6 text-white rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300 mr-5"
         >
           Update Now
         </button>

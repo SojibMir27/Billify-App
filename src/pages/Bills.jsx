@@ -9,10 +9,10 @@ import Spinner from "./Spinner";
 const Bills = () => {
   UseTitle("Bills || Billify");
   const data = useLoaderData();
-   const {  loading } = useScroll(AuthContext);
+  const { loading } = useScroll(AuthContext);
 
   if (loading) {
-    return <Spinner/>;
+    return <Spinner />;
   }
   return (
     <>
