@@ -5,7 +5,7 @@ import jsPDF from "jspdf";
 
 const MyPayBillDetails = () => {
   const bill = useLoaderData();
-  const { username, Phone, Address, amount, date, _id ,title} = bill;
+  const { username, Phone, Address, amount, date, _id, title } = bill;
 
   const handleDownloadPDF = () => {
     const pdf = new jsPDF();
@@ -16,34 +16,39 @@ const MyPayBillDetails = () => {
     pdf.setFont("helvetica", "bold");
     pdf.setTextColor(30, 30, 150);
     pdf.text("Bill Details", 105, 20, { align: "center" });
-
     pdf.setDrawColor(30, 30, 150);
     pdf.setLineWidth(1.5);
     pdf.line(20, 25, 190, 25);
-
     pdf.setFillColor(240, 240, 255);
-    pdf.rect(15, 35, 180, 80, "F");
 
+    const rectX = 15;
+    const rectY = 35;
+    const rectWidth = 180;
+    const rectHeight = 120;
+
+    pdf.rect(rectX, rectY, rectWidth, rectHeight, "F");
     pdf.setFontSize(14);
     pdf.setFont("helvetica", "bold");
     pdf.setTextColor(0, 0, 0);
     const startY = 50;
-    const gap = 12;
+    const gap = 14;
 
-    pdf.text(`Bill ID: ${_id}`, 105, startY, { align: "center" });
-    pdf.text(`Name: ${username}`, 105, startY + gap, { align: "center" });
-    pdf.text(`Phone: ${Phone}`, 105, startY + gap * 2, { align: "center" });
-    pdf.text(`Location: ${Address}`, 105, startY + gap * 3, {
+    pdf.text(`Bill Name: ${title}`, 105, startY, { align: "center" });
+    pdf.text(`Bill ID: ${_id}`, 105, startY + gap, { align: "center" });
+    pdf.text(`User Name: ${username}`, 105, startY + gap * 2, {
       align: "center",
     });
-    pdf.text(`Amount: ${amount} BDT`, 105, startY + gap * 4, {
+    pdf.text(`Phone: ${Phone}`, 105, startY + gap * 3, { align: "center" });
+    pdf.text(`Location: ${Address}`, 105, startY + gap * 4, {
       align: "center",
     });
-    pdf.text(`Bill Date: ${date}`, 105, startY + gap * 5, { align: "center" });
-    
+    pdf.text(`Amount: ${amount} BDT`, 105, startY + gap * 5, {
+      align: "center",
+    });
+    pdf.text(`Bill Date: ${date}`, 105, startY + gap * 6, { align: "center" });
     pdf.setFontSize(12);
     pdf.setTextColor(100, 100, 100);
-    pdf.text(`Downloaded At: ${currentDateTime}`, 105, startY + gap * 6, {
+    pdf.text(`Downloaded At: ${currentDateTime}`, 105, startY + gap * 7, {
       align: "center",
     });
 
@@ -67,11 +72,11 @@ const MyPayBillDetails = () => {
         <p className="text-center">
           <span className="font-semibold">Bill Name:</span> {title}
         </p>
-        
+
         <p className=" text-center">
           <span className="font-semibold">Name:</span> {username}
         </p>
-        
+
         <p className="text-center">
           <span className="font-semibold">Phone:</span> {Phone}
         </p>
