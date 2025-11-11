@@ -1,13 +1,15 @@
 import React, { use } from "react";
 import Banner from "./Banner";
 import UseTitle from "../hooks/UseTitle";
-import { Link } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import Spinner from "../pages/Spinner";
 import { AuthContext } from "../context/AuthContext";
+import DisplayBillCard from "../pages/DisplayBillCard";
 
 const Home = () => {
   UseTitle("Deshboard || Billify");
   const { loading } = use(AuthContext);
+  const data = useLoaderData();
 
   if (loading) {
     return <Spinner />;
@@ -15,12 +17,19 @@ const Home = () => {
 
   return (
     <div>
+      {/* banner section */}
       <Banner />
+
       {/* recent bill section */}
       <section className="my-5 py-10 w-11/12 mx-auto rounded-xl">
         <h2 className="text-center font-bold text-4xl mb-10">Recent Bills</h2>
 
-        <div className="grid grid-cols-1 mx-auto w-11/12 md:grid-cols-3 gap-3 mb-5"></div>
+        {/* recent bill card */}
+        <div className="grid grid-cols-1 mx-auto w-11/12 md:grid-cols-3 gap-3 mb-5">
+          {data.map((bill, index) => (
+            <DisplayBillCard key={index} bill={bill}></DisplayBillCard>
+          ))}
+        </div>
 
         {/* go to all bills */}
         <div className="flex justify-center items-center mx-auto mb-5">
@@ -124,7 +133,7 @@ const Home = () => {
       </section>
 
       {/* smart bill management section */}
-      <section className="my-5 py-10 w-11/12 mx-auto rounded-xl">
+      <section className="my-5 py-10 w-9/12 mx-auto rounded-xl">
         <div className="w-11/12 mx-auto flex flex-col md:flex-row items-center gap-10">
           {/* Left Text */}
           <div className="md:w-5/6">

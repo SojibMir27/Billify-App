@@ -3,7 +3,6 @@ import { Link } from "react-router";
 
 const MyPaidBillsCard = ({ bill }) => {
   const { username, Phone, Address, amount, date, _id, title } = bill;
-  console.log(title)
 
   return (
     <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-500 rounded">
