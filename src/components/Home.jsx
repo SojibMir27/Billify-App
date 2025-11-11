@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <div>
       {/* banner section */}
-      <Banner />
+      <Banner data={data}/>
 
       {/* recent bill section */}
       <section className="my-5 py-10 w-11/12 mx-auto rounded-xl">
