@@ -11,8 +11,15 @@ const Footer = () => {
         <div className="md:col-span-2">
           <Link
             to={"/"}
-            className="flex items-center gap-1 text-2xl text-pink-500 font-bold"
+            className="flex items-center gap-1 text-pink-500 text-2xl font-bold"
           >
+            <span>
+              <img
+                className="w-5 h-5 rounded"
+                src="./billify_logo.jpeg"
+                alt=""
+              />
+            </span>{" "}
             Billify
           </Link>
           <p className="text-sm mt-3 opacity-80">

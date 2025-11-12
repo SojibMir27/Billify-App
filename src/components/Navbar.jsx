@@ -79,6 +79,9 @@ const Navbar = () => {
           to={"/"}
           className="flex items-center gap-1 text-pink-500 text-xl font-bold"
         >
+          <span>
+            <img className="w-5 h-5 rounded" src="./billify_logo.jpeg" alt="" />
+          </span>{" "}
           Billify
         </Link>
       </div>
