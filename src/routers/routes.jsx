@@ -23,7 +23,8 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-        loader: () => fetch("http://localhost:5000/bills/recent"),
+        loader: () =>
+          fetch("https://billify-server-rho.vercel.app/bills/recent"),
       },
       {
         path: "/about",
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
       {
         path: "/bills",
         element: <Bills />,
-        loader: () => fetch("http://localhost:5000/bills"),
+        loader: () => fetch("https://billify-server-rho.vercel.app/bills"),
       },
       {
         path: "/bill-details/:id",
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/bills/${params.id}`),
+          fetch(`https://billify-server-rho.vercel.app/bills/${params.id}`),
       },
       {
         path: "/display-bill-card",
@@ -84,7 +85,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/my-bills/${params.id}`),
+          fetch(`https://billify-server-rho.vercel.app/my-bills/${params.id}`),
       },
       {
         path: "*",

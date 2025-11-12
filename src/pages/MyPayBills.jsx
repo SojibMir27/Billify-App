@@ -19,7 +19,7 @@ const MyPayBills = () => {
     async function fetchBills() {
       try {
         const response = await fetch(
-          `http://localhost:5000/my-bills?email=${user.email}`
+          `https://billify-server-rho.vercel.app/my-bills?email=${user.email}`
         );
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -106,7 +106,7 @@ const MyPayBills = () => {
       date: new Date().toLocaleDateString("en-GB"),
     };
 
-    fetch(`http://localhost:5000/my-bills/${_id}`, {
+    fetch(`https://billify-server-rho.vercel.app/my-bills/${_id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newUpdateBillsData),
@@ -143,7 +143,7 @@ const MyPayBills = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/my-bills/${_id}`, {
+        fetch(`https://billify-server-rho.vercel.app/my-bills/${_id}`, {
           method: "DELETE",
           headers: { "content-type": "application/json" },
         })

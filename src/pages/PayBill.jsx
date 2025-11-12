@@ -32,7 +32,7 @@ const PayBill = ({ isDisabled, bill }) => {
       date: new Date().toLocaleDateString("en-GB"),
     };
 
-    fetch("http://localhost:5000/my-bills", {
+    fetch("https://billify-server-rho.vercel.app/my-bills", {
       method: "POST",
       headers: {
         "content-type": "application/json",

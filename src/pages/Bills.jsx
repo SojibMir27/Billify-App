@@ -27,12 +27,12 @@ const Bills = () => {
     setLoading(true);
 
     try {
-      let url = "http://localhost:5000/bills";
+      let url = "https://billify-server-rho.vercel.app/bills";
 
       if (selected) {
         const formattedCategory =
           selected.charAt(0).toUpperCase() + selected.slice(1).toLowerCase();
-        url = `http://localhost:5000/bills-category?category=${formattedCategory}`;
+        url = `https://billify-server-rho.vercel.app/bills-category?category=${formattedCategory}`;
       }
 
       const response = await fetch(url);
@@ -54,7 +54,7 @@ const Bills = () => {
     <div className="w-full">
       <h1 className="text-4xl text-center font-bold mb-10 mt-5 text-pink-500">
         <Typewriter
-          words={["All Bills","Bills"]}
+          words={["All Bills", "Bills"]}
           loop={true}
           cursor
           cursorStyle="|"
