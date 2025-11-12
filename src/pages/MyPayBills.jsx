@@ -236,7 +236,7 @@ const MyPayBills = () => {
                   <td>{bill.date}</td>
                   <td className="whitespace-nowrap">{bill.Phone}</td>
                   <td>{bill.Address}</td>
-                  <th className="text-center">
+                  <th>
                     <dialog
                       id={`modal-${bill._id}`}
                       className="modal modal-bottom sm:modal-middle"
