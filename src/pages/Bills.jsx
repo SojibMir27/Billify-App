@@ -4,6 +4,7 @@ import BillCard from "./BillCard";
 import { useLoaderData } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import Spinner from "./Spinner";
+import { Typewriter } from "react-simple-typewriter";
 
 const Bills = () => {
   UseTitle("Bills || Billify");
@@ -52,7 +53,15 @@ const Bills = () => {
   return (
     <div className="w-full">
       <h1 className="text-4xl text-center font-bold mb-10 mt-5 text-pink-500">
-        All Bills
+        <Typewriter
+          words={["All Bills","Bills"]}
+          loop={true}
+          cursor
+          cursorStyle="|"
+          typeSpeed={70}
+          deleteSpeed={50}
+          delaySpeed={1000}
+        />
       </h1>
 
       {/* dropdown */}

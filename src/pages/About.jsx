@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import UseTitle from "../hooks/UseTitle";
+import { Typewriter } from "react-simple-typewriter";
 
 const About = () => {
   UseTitle("About || Billify");
@@ -13,8 +14,19 @@ const About = () => {
         transition={{ duration: 0.6 }}
         className="bg-purple-500/20 rounded-2xl shadow-2xl p-8 max-w-xl text-center border border-pink-500/30"
       >
-        <h2 className="text-3xl font-bold mb-4">
-          About Utility Bill Management System
+        <h2 className="text-2xl font-bold mb-4">
+          <Typewriter
+            words={[
+              "About Utility Bill Management System",
+              "Our Utility Bill Management System",
+            ]}
+            loop={true}
+            cursor
+            cursorStyle="|"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
         </h2>
         <p className="mb-6 opacity-70">
           This system helps you keep track of your utility bills including

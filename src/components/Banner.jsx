@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Link } from "react-router";
+import { Typewriter } from "react-simple-typewriter";
 
 const Banner = ({ data }) => {
   return (
@@ -35,7 +36,7 @@ const Banner = ({ data }) => {
 
       <Swiper
         modules={[Autoplay, Navigation, Pagination]}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
         navigation={{ nextEl: ".custom-next", prevEl: ".custom-prev" }}
         pagination={{ clickable: true }}
         loop={true}
@@ -52,7 +53,14 @@ const Banner = ({ data }) => {
               />
               <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center px-4">
                 <h2 className="text-white text-2xl md:text-4xl font-bold drop-shadow-lg">
-                  {slide.title}
+                  <Typewriter
+                    words={[slide.title]}
+                    loop={false}
+                    cursor
+                    cursorStyle="|"
+                    typeSpeed={150}
+                    deleteSpeed={0}
+                  />
                 </h2>
 
                 <p className="text-white/80 text-sm md:text-lg font-medium mt-3 drop-shadow">

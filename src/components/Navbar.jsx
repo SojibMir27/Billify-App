@@ -1,15 +1,17 @@
-import { Link, NavLink, useNavigation } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import { IoLogIn, IoLogOut } from "react-icons/io5";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
+
 
 const Navbar = () => {
   const { user, logoutUser } = useContext(AuthContext);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigation();
+  const navigate = useNavigate();
+ 
 
   useEffect(() => {
     const html = document.querySelector("html");
@@ -19,8 +21,8 @@ const Navbar = () => {
 
   const handleLogOut = () => {
     logoutUser().then(() => {
-      toast.success("Logout successful");
       navigate("/login");
+      toast.success("Logout successful");
     });
   };
 

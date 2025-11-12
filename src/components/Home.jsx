@@ -6,6 +6,7 @@ import Spinner from "../pages/Spinner";
 import { AuthContext } from "../context/AuthContext";
 import DisplayBillCard from "../pages/DisplayBillCard";
 import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
 
 const Home = () => {
   UseTitle("Deshboard || Billify");
@@ -22,12 +23,23 @@ const Home = () => {
       <Banner data={data} />
 
       {/* recent bill section */}
-      <motion.section initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }} className="my-5 py-10 w-11/12 mx-auto rounded-xl">
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="my-5 py-10 w-11/12 mx-auto rounded-xl"
+      >
         <h2 className="text-center font-bold text-4xl text-pink-500 mb-10">
-          Recent Bills
+          <Typewriter
+            words={["Recent Bills"]}
+            loop={true}
+            cursor
+            cursorStyle="|"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
         </h2>
 
         {/* recent bill card */}
@@ -52,7 +64,15 @@ const Home = () => {
       <section className="my-5 py-10 w-11/12 mx-auto rounded-xl">
         <div className="w-11/12 mx-auto">
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-3 text-pink-500">
-            Tips for Managing Your Bills
+            <Typewriter
+              words={["Tips for Managing Your Bills"]}
+              loop={true}
+              cursor
+              cursorStyle="|"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            />
           </h2>
           <p className="text-center opacity-70 mb-10">
             Make your bill management smarter and stress-free using these
@@ -106,7 +126,15 @@ const Home = () => {
       <section className="my-5 py-10 w-11/12 mx-auto rounded-xl">
         <div className="w-11/12 mx-auto text-center">
           <h2 className="text-2xl md:text-4xl font-bold mb-4 text-pink-500 ">
-            Why Managing Bills Is Important
+            <Typewriter
+              words={["Why Managing Bills Is Important"]}
+              loop={true}
+              cursor
+              cursorStyle="|"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            />
           </h2>
           <p className="opacity-70 mb-12">
             Good bill management keeps your financial life smooth and
@@ -162,7 +190,15 @@ const Home = () => {
           {/* Left Text */}
           <div className="md:w-5/6">
             <h2 className="text-2xl md:text-4xl font-bold mb-5 text-pink-500 text-center md:text-start">
-              Smart Bill Management
+              <Typewriter
+                words={["Smart Bill Management"]}
+                loop={true}
+                cursor
+                cursorStyle="|"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
             </h2>
             <p className=" mb-6 text-center md:text-start">
               Keep all your bills organized and always pay on time. Smart
