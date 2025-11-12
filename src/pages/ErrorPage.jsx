@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FaHome } from "react-icons/fa";
 import Animotion from "../Animotion/Animotion";
 import UseTitle from "../hooks/UseTitle";

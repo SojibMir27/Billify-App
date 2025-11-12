@@ -13,6 +13,7 @@ import UpdateBill from "../pages/UpdateBill";
 import About from "../pages/About";
 import DisplayBillCard from "../pages/DisplayBillCard";
 import Spinner from "../pages/Spinner";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
             <UpdateBill />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "*",
+        element: <ErrorPage />,
       },
     ],
   },
