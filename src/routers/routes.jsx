@@ -9,7 +9,6 @@ import Bills from "../pages/Bills";
 import BillDetails from "../pages/BillDetails";
 import PayBill from "../pages/PayBill";
 import MyPayBillDetails from "../pages/MyPayBillDetails";
-import UpdateBill from "../pages/UpdateBill";
 import About from "../pages/About";
 import DisplayBillCard from "../pages/DisplayBillCard";
 import Spinner from "../pages/Spinner";
@@ -86,14 +85,6 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/my-bills/${params.id}`),
-      },
-      {
-        path: "/my-bill-update/:id",
-        element: (
-          <PrivateRoute>
-            <UpdateBill />
-          </PrivateRoute>
-        ),
       },
       {
         path: "*",

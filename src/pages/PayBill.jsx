@@ -9,7 +9,6 @@ const PayBill = ({ isDisabled, bill }) => {
   const { user } = use(AuthContext);
   const { _id, amount, title } = bill;
   const navigate = useNavigate();
-  console.log(title);
 
   const handleBidModalOpen = () => {
     bidModalRef.current.showModal();

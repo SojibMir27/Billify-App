@@ -1,5 +1,4 @@
 import React from "react";
-import UpdateBill from "./UpdateBill";
 import { useLoaderData } from "react-router";
 import UseTitle from "../hooks/UseTitle";
 
@@ -37,9 +36,6 @@ const MyPayBillDetails = () => {
         <p className="text-center">
           <span className="font-semibold">Date:</span> {date}
         </p>
-
-        {/* Update Modal */}
-        <UpdateBill bill={bill} />
       </div>
     </div>
   );
