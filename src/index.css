@@ -5,7 +5,14 @@
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
+.menu a.active {
+  @apply bg-blue-500 dark:bg-blue-700 text-white font-semibold;
+}
 
-.menu a.active{
-    @apply bg-red-500
+.menu a {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+.menu li a:hover {
+  background-color: transparent;
 }
