@@ -177,7 +177,7 @@ const MyPayBills = () => {
       {error && <div className="text-red-500 text-center mb-4">{error}</div>}
 
       {bills.length > 0 && (
-        <div className="w-11/12 md:w-6/12 mx-auto bg-gradient-to-r from-blue-600 to-pink-600 text-white rounded-xl p-4 shadow-lg mt-4 text-center">
+        <div className="w-11/12 md:w-6/12 mx-auto bg-linear-to-r from-blue-600 to-pink-600 text-white rounded-xl p-4 shadow-lg mt-4 text-center">
           <h3 className="text-lg font-semibold">
             Total Bills Paid: {bills.length}
           </h3>
@@ -190,7 +190,7 @@ const MyPayBills = () => {
 
       {bills.length === 0 ? (
         <div className="flex w-11/12 mx-auto justify-center items-center py-20">
-          <div className="bg-gradient-to-r from-purple-700 to-pink-700 text-white rounded-3xl shadow-2xl p-10 w-full max-w-md text-center">
+          <div className="bg-linear-to-r from-purple-700 to-pink-700 text-white rounded-3xl shadow-2xl p-10 w-full max-w-md text-center">
             <h2 className="text-3xl font-bold drop-shadow mb-3">
               No Data Found
             </h2>

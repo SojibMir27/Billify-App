@@ -85,7 +85,7 @@ const Bills = () => {
           bills.map((bill) => <BillCard key={bill._id} bill={bill} />)
         ) : (
           <div className="flex w-11/12 mx-auto justify-center items-center py-65 md:py-50">
-            <div className="bg-gradient-to-r from-purple-700 to-pink-700 text-white rounded-3xl shadow-2xl p-10 w-full max-w-md text-center animate-[fadeIn_0.6s_ease-out, floating_3s_ease-in-out_infinite]">
+            <div className="bg-linear-to-r from-purple-700 to-pink-700 text-white rounded-3xl shadow-2xl p-10 w-full max-w-md text-center animate-[fadeIn_0.6s_ease-out, floating_3s_ease-in-out_infinite]">
               <h2 className="text-3xl font-bold drop-shadow mb-3 animate-bounce">
                 No Data Found
               </h2>

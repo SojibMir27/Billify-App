@@ -14,7 +14,7 @@ const ErrorPage = () => {
   return (
     <Animotion>
       <div
-        className={`min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-indigo-950 to-gray-900 text-white relative overflow-hidden`}
+        className={`min-h-screen flex flex-col items-center justify-center bg-gradi-to-br from-gray-900 via-indigo-950 to-gray-900 text-white relative overflow-hidden`}
       >
         {/* Animated gradient blobs */}
         <motion.div
@@ -36,7 +36,7 @@ const ErrorPage = () => {
           className="z-10 text-center p-6"
         >
           <motion.h1
-            className="text-[6rem] md:text-[9rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-lg"
+            className="text-[6rem] md:text-[9rem] font-extrabold text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-blue-500 drop-shadow-lg"
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
@@ -51,7 +51,7 @@ const ErrorPage = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleGoHome}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-blue-500/50 transition-all duration-300"
+            className="inline-flex items-center gap-2 bg-linear-to-r from-cyan-500 to-blue-500 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-blue-500/50 transition-all duration-300"
           >
             <FaHome className="text-lg" />
             Go Back Home
