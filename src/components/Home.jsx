@@ -5,7 +5,7 @@ import { Link, useLoaderData } from "react-router";
 import Spinner from "../pages/Spinner";
 import { AuthContext } from "../context/AuthContext";
 import DisplayBillCard from "../pages/DisplayBillCard";
-
+import { motion } from "framer-motion";
 
 const Home = () => {
   UseTitle("Deshboard || Billify");
@@ -19,11 +19,16 @@ const Home = () => {
   return (
     <div>
       {/* banner section */}
-      <Banner data={data}/>
+      <Banner data={data} />
 
       {/* recent bill section */}
-      <section className="my-5 py-10 w-11/12 mx-auto rounded-xl">
-        <h2 className="text-center font-bold text-4xl mb-10">Recent Bills</h2>
+      <motion.section initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }} className="my-5 py-10 w-11/12 mx-auto rounded-xl">
+        <h2 className="text-center font-bold text-4xl text-pink-500 mb-10">
+          Recent Bills
+        </h2>
 
         {/* recent bill card */}
         <div className="grid grid-cols-1 mx-auto w-11/12 md:grid-cols-3 gap-3 mb-5">
@@ -36,17 +41,17 @@ const Home = () => {
         <div className="flex justify-center items-center mx-auto mb-5">
           <Link
             to={`/bills`}
-            className="btn text-white rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300 w-2/12"
+            className="btn text-white rounded bg-linear-to-r from-blue-700 to-pink-700 hover:from-blue-800 hover:to-pink-800 transition-colors duration-300 w-8/12 md:w-2/12"
           >
             See More
           </Link>
         </div>
-      </section>
+      </motion.section>
 
       {/* bill manegment setction  */}
       <section className="my-5 py-10 w-11/12 mx-auto rounded-xl">
         <div className="w-11/12 mx-auto">
-          <h2 className="text-2xl md:text-4xl font-bold text-center mb-3 text-pink-500/80 ">
+          <h2 className="text-2xl md:text-4xl font-bold text-center mb-3 text-pink-500">
             Tips for Managing Your Bills
           </h2>
           <p className="text-center opacity-70 mb-10">
@@ -54,7 +59,13 @@ const Home = () => {
             helpful guidelines.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          >
             {/* Card 1 */}
             <div className="bg-white shadow-lg rounded-2xl p-6 hover:shadow-xl  text-center hover:shadow-red-500/40 hover:-translate-y-2 transition-all duration-200">
               <h3 className="text-xl font-bold mb-3 text-blue-600">
@@ -87,14 +98,14 @@ const Home = () => {
                 and save money.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* bills is important section */}
       <section className="my-5 py-10 w-11/12 mx-auto rounded-xl">
         <div className="w-11/12 mx-auto text-center">
-          <h2 className="text-2xl md:text-4xl font-bold mb-4 text-pink-500/80 ">
+          <h2 className="text-2xl md:text-4xl font-bold mb-4 text-pink-500 ">
             Why Managing Bills Is Important
           </h2>
           <p className="opacity-70 mb-12">
@@ -102,7 +113,13 @@ const Home = () => {
             stress-free.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          >
             <div className="bg-white shadow-lg rounded-2xl p-6 hover:shadow-xl  text-center hover:shadow-red-500/40 hover:-translate-y-2 transition-all duration-200">
               <h3 className="text-xl font-semibold text-blue-600 mb-2">
                 Avoid Extra Fees
@@ -129,16 +146,22 @@ const Home = () => {
                 Proper planning keeps your monthly budget under control.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* smart bill management section */}
-      <section className="my-5 py-10 w-9/12 mx-auto rounded-xl">
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="my-5 py-10 w-9/12 mx-auto rounded-xl"
+      >
         <div className="w-11/12 mx-auto flex flex-col md:flex-row items-center gap-10">
           {/* Left Text */}
           <div className="md:w-5/6">
-            <h2 className="text-2xl md:text-4xl font-bold mb-5 text-pink-500/80 text-center md:text-start">
+            <h2 className="text-2xl md:text-4xl font-bold mb-5 text-pink-500 text-center md:text-start">
               Smart Bill Management
             </h2>
             <p className=" mb-6 text-center md:text-start">
@@ -162,7 +185,7 @@ const Home = () => {
             />
           </div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };

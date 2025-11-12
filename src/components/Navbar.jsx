@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigation } from "react-router";
 import { IoLogIn, IoLogOut } from "react-icons/io5";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
@@ -9,6 +9,7 @@ const Navbar = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigation();
 
   useEffect(() => {
     const html = document.querySelector("html");
@@ -17,9 +18,10 @@ const Navbar = () => {
   }, [theme]);
 
   const handleLogOut = () => {
-    logoutUser()
-      .then(() => toast.success("Logout successful"))
-      .catch((e) => toast.error(e.message));
+    logoutUser().then(() => {
+      toast.success("Logout successful");
+      navigate("/login");
+    });
   };
 
   const links = (
@@ -42,7 +44,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar relative z-50 border-b border-b-amber-300 shadow-sm glass-card max-w-7xl mx-auto px-2 sm:px-4">
+    <div className="navbar relative z-50 rounded shadow-sm glass-card max-w-7xl mx-auto px-2 sm:px-4">
       <div className="navbar-start">
         <div className="dropdown md:hidden relative">
           <button
@@ -73,7 +75,10 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <Link to={"/"} className="flex items-center gap-1 text-xl font-bold">
+        <Link
+          to={"/"}
+          className="flex items-center gap-1 text-pink-500 text-xl font-bold"
+        >
           Billify
         </Link>
       </div>

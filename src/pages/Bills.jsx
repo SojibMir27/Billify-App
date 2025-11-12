@@ -51,7 +51,9 @@ const Bills = () => {
 
   return (
     <div className="w-full">
-      <h1 className="text-4xl text-center font-bold mb-10 mt-5">All Bills</h1>
+      <h1 className="text-4xl text-center font-bold mb-10 mt-5 text-pink-500">
+        All Bills
+      </h1>
 
       {/* dropdown */}
       <div className="flex justify-end items-center w-11/12 mx-auto mb-5 gap-2">

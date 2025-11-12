@@ -40,7 +40,6 @@ const Register = () => {
       return;
     }
 
-
     registerEmailAndPassword(email, password)
       .then(() => {
         profileUpdate(
@@ -112,7 +111,7 @@ const Register = () => {
   };
 
   return (
-    <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl border border-pink-500/20 my-2">
+    <div className="card bg-base-100 w-11/12 mx-auto max-w-sm shrink-0 shadow-2xl border border-pink-500/20 my-20 md:my-8">
       <div className="card-body">
         <h1 className="text-3xl font-bold text-center">Register Now</h1>
         <form onSubmit={handleRegister}>

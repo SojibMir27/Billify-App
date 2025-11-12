@@ -7,7 +7,7 @@ const PrivateRoute = ({ children }) => {
   const { user, loading } = use(AuthContext);
 
   if (loading) {
-    return <Spinner/>;
+    return <Spinner />;
   }
 
   if (!user) {

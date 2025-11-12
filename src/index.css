@@ -12,7 +12,3 @@
 .menu a {
   @apply text-gray-700 dark:text-gray-300;
 }
-
-.menu li a:hover {
-  background-color: transparent;
-}

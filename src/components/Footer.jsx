@@ -6,17 +6,32 @@ const Footer = () => {
 
   return (
     <footer className="bg-linear-to-r from-red-500/20 to-pink-600/20 py-8 px-4">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
-        {/* Brand + Menu */}
-        <div>
-          <Link to={"/"} className="flex items-center gap-1 text-xl font-bold">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-6 gap-8">
+        {/* Brand Name*/}
+        <div className="md:col-span-2">
+          <Link
+            to={"/"}
+            className="flex items-center gap-1 text-2xl text-pink-500 font-bold"
+          >
             Billify
           </Link>
+          <p className="text-sm mt-3 opacity-80">
+            Your smart solution for managing every bill efficiently. With a
+            simple interface, quick payment tracking, and secure data handling,
+            we help you save time and effort. All your bills, managed in one
+            place — effortlessly.
+          </p>
+        </div>
 
+        {/* Quick Link */}
+        <div>
+          <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-gray-200">
+            Quick Link
+          </h3>
           <ul className="space-y-2 mt-4">
             <li>
               <Link
-                to="/"
+                to="/bills"
                 className="text-gray-900 dark:text-white hover:text-blue-600"
               >
                 All Bills
@@ -24,18 +39,10 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="/"
+                to="/my-pay-bills"
                 className="text-gray-900 dark:text-white hover:text-blue-600"
               >
-                Add Bill
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/register"
-                className="text-gray-900 dark:text-white hover:text-blue-600"
-              >
-                Register
+                My Paid Bill
               </Link>
             </li>
             <li>
@@ -81,7 +88,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="/resources"
+                to="/"
                 className="text-gray-900 dark:text-white hover:text-blue-600"
               >
                 All Resources
@@ -101,7 +108,7 @@ const Footer = () => {
                 to="/"
                 className="text-gray-900 dark:text-white hover:text-blue-600"
               >
-                Discussion Forums
+                Bill Payers Forum
               </Link>
             </li>
             <li>
@@ -109,7 +116,7 @@ const Footer = () => {
                 to="/"
                 className="text-gray-900 dark:text-white hover:text-blue-600"
               >
-                User Groups
+                Share Your Feedback
               </Link>
             </li>
             <li>
@@ -117,7 +124,7 @@ const Footer = () => {
                 to="/"
                 className="text-gray-900 dark:text-white hover:text-blue-600"
               >
-                Workshops
+                Bill Management Tips
               </Link>
             </li>
             <li>
@@ -125,7 +132,7 @@ const Footer = () => {
                 to="/"
                 className="text-gray-900 dark:text-white hover:text-blue-600"
               >
-                Leaderboard
+                Help & Support
               </Link>
             </li>
           </ul>

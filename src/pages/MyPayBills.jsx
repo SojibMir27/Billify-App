@@ -106,6 +106,7 @@ import UpdateBill from "./UpdateBill";
 import jsPDF from "jspdf";
 import { autoTable } from "jspdf-autotable";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
 
 const MyPayBills = () => {
   UseTitle("My-Bills || Billify");
@@ -133,10 +134,10 @@ const MyPayBills = () => {
         setLoading(false);
       }
     }
-
     fetchBills();
   }, [user]);
 
+  // pgf download
   const downloadPDF = () => {
     const doc = new jsPDF("p", "pt", "a4");
     doc.setFontSize(20);
@@ -159,7 +160,7 @@ const MyPayBills = () => {
     const tableColumn = [
       "SL",
       "Username",
-      "Bill Name",
+      "Billname",
       "Amount",
       "Bill ID",
       "Date",
@@ -187,8 +188,6 @@ const MyPayBills = () => {
       head: [tableColumn],
       body: tableRows,
       styles: { fontSize: 10, cellPadding: 4 },
-      headStyles: { fillColor: [52, 200, 253] }, // nice green header
-      alternateRowStyles: { fillColor: [235, 235, 235] }, // light gray rows
     });
 
     doc.save("my_paid_bills.pdf");
@@ -198,7 +197,12 @@ const MyPayBills = () => {
   if (loading || userLoading) return <Spinner />;
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
       {error && <div className="text-red-500 text-center mb-4">{error}</div>}
 
       {bills.length > 0 && (
@@ -272,7 +276,7 @@ const MyPayBills = () => {
           </table>
         </div>
       )}
-    </>
+    </motion.div>
   );
 };
 

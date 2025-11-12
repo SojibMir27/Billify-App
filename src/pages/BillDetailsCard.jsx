@@ -1,13 +1,10 @@
-// import { Eye, Heart } from "lucide-react";
-// import { Link } from "react-router";
 import PayBill from "./PayBill";
 
 const BillDetailsCard = ({ bill }) => {
-  const { title, category, location, description, image, amount, date, _id } =
-    bill;
+  const { title, category, location, description, image, amount, date } = bill;
 
   return (
-    <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-500/20 rounded-xl flex flex-col md:flex-row justify-between items-stretch mx-auto w-11/12 md:w-full max-w-6xl my-10">
+    <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-500/20 rounded-xl flex flex-col md:flex-row justify-between items-stretch mx-auto w-11/12 md:w-full max-w-6xl my-10 md:my-22">
       {/* Image - 40% */}
       <div className="md:w-2/5 w-full h-64 md:h-auto">
         <figure className="h-full overflow-hidden p-5">
