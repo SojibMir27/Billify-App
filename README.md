@@ -5,6 +5,10 @@ Built using **Vite**, **React 19**, **Tailwind CSS 4**, and **Firebase**.
 
 ---
 
+## ⚙️ Live Link
+
+## https://billify-management.netlify.app/
+
 ## 🚀 Features
 
 - 📄 Beautiful invoice generation UI
@@ -32,7 +36,3 @@ Built using **Vite**, **React 19**, **Tailwind CSS 4**, and **Firebase**.
 | **Swiper.js**                                      | Carousel and slider features    |
 
 ---
-
-## ⚙️ Live Link
-
-https://billify-management.netlify.app/
