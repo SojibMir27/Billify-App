@@ -37,8 +37,8 @@ const Home = () => {
         </h2>
 
         {/* Card Current Bill */}
-        <div className="grid grid-cols-1 mx-auto w-11/12 md:grid-cols-4 gap-3">
-          <div className=" relative bg-white p-1 shadow-lg rounded-2xl hover:shadow-xl text-center hover:shadow-red-500/40 hover:-translate-y-2 transition-all duration-200 w-64">
+        <div className="grid grid-cols-1 mx-auto w-11/12 md:grid-cols-4 gap-5">
+          <div className=" relative bg-white p-1 shadow-lg rounded-2xl hover:shadow-xl text-center hover:shadow-red-500/40 hover:-translate-y-2 transition-all duration-200 w-full md:w-64 mx-auto">
             <div className="relative">
               <img
                 src="https://i.ibb.co.com/p60r5GB5/Mohakhali-Internet.jpg"
@@ -52,7 +52,7 @@ const Home = () => {
           </div>
 
           {/* Card Gas Bill */}
-          <div className="bg-white p-1 shadow-lg rounded-2xl hover:shadow-xl text-center hover:shadow-red-500/40 hover:-translate-y-2 transition-all duration-200 w-64">
+          <div className="bg-white p-1 shadow-lg rounded-2xl hover:shadow-xl text-center hover:shadow-red-500/40 hover:-translate-y-2 transition-all duration-200 w-full md:w-64 mx-auto">
             <div className="relative">
               <img
                 src="https://i.ibb.co.com/7tD7XqQq/Banani-Gas.jpg"
@@ -66,7 +66,7 @@ const Home = () => {
           </div>
 
           {/* Card Water Bill */}
-          <div className="bg-white p-1 shadow-lg rounded-2xl hover:shadow-xl text-center hover:shadow-red-500/40 hover:-translate-y-2 transition-all duration-200 w-64">
+          <div className="bg-white p-1 shadow-lg rounded-2xl hover:shadow-xl text-center hover:shadow-red-500/40 hover:-translate-y-2 transition-all duration-200 w-full md:w-64 mx-auto">
             <div className="relative">
               <img
                 src="https://i.ibb.co.com/kVXgPb9s/Khilgaon-Water-Shortage.jpg"
@@ -80,7 +80,7 @@ const Home = () => {
           </div>
 
           {/* Card Internet Bill */}
-          <div className="bg-white p-1 shadow-lg rounded-2xl hover:shadow-xl text-center hover:shadow-red-500/40 hover:-translate-y-2 transition-all duration-200 w-64">
+          <div className="bg-white p-1 shadow-lg rounded-2xl hover:shadow-xl text-center hover:shadow-red-500/40 hover:-translate-y-2 transition-all duration-200 w-full md:w-64 mx-auto">
             <div className="relative">
               <img
                 src="https://i.ibb.co.com/r22bTh5W/Gulshan-Internet.jpg"
