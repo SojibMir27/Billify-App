@@ -22,6 +22,79 @@ const Home = () => {
       {/* banner section */}
       <Banner data={data} />
 
+      {/* Our Category */}
+      <section className="w-11/12 mx-auto">
+        <h2 className="text-center font-bold text-4xl text-pink-500 mb-10">
+          <Typewriter
+            words={["Our Categories"]}
+            loop={true}
+            cursor
+            cursorStyle="|"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </h2>
+
+        {/* Card Current Bill */}
+        <div className="grid grid-cols-1 mx-auto w-11/12 md:grid-cols-4 gap-3">
+          <div className=" relative bg-white p-1 shadow-lg rounded-2xl hover:shadow-xl text-center hover:shadow-red-500/40 hover:-translate-y-2 transition-all duration-200 w-64">
+            <div className="relative">
+              <img
+                src="https://i.ibb.co.com/p60r5GB5/Mohakhali-Internet.jpg"
+                alt="Current Bill"
+                className="rounded-xl h-40 w-full object-cover"
+              />
+              <h3 className="absolute top-30 left-1/2 -translate-x-1/2 bg-sky-500/50 text-2xl font-bold px-3 rounded-lg shadow">
+                Current
+              </h3>
+            </div>
+          </div>
+
+          {/* Card Gas Bill */}
+          <div className="bg-white p-1 shadow-lg rounded-2xl hover:shadow-xl text-center hover:shadow-red-500/40 hover:-translate-y-2 transition-all duration-200 w-64">
+            <div className="relative">
+              <img
+                src="https://i.ibb.co.com/7tD7XqQq/Banani-Gas.jpg"
+                alt="Current Bill"
+                className="rounded-xl h-40 w-full object-cover"
+              />
+              <h3 className="absolute top-30 left-1/2 -translate-x-1/2 bg-sky-500/50 text-2xl font-bold px-1 rounded-lg shadow">
+                Gas
+              </h3>
+            </div>
+          </div>
+
+          {/* Card Water Bill */}
+          <div className="bg-white p-1 shadow-lg rounded-2xl hover:shadow-xl text-center hover:shadow-red-500/40 hover:-translate-y-2 transition-all duration-200 w-64">
+            <div className="relative">
+              <img
+                src="https://i.ibb.co.com/kVXgPb9s/Khilgaon-Water-Shortage.jpg"
+                alt="Current Bill"
+                className="rounded-xl h-40 w-full object-cover"
+              />
+              <h3 className="absolute top-30 left-1/2 -translate-x-1/2 bg-sky-500/50 text-2xl font-bold px-1 rounded-lg shadow">
+                Water
+              </h3>
+            </div>
+          </div>
+
+          {/* Card Internet Bill */}
+          <div className="bg-white p-1 shadow-lg rounded-2xl hover:shadow-xl text-center hover:shadow-red-500/40 hover:-translate-y-2 transition-all duration-200 w-64">
+            <div className="relative">
+              <img
+                src="https://i.ibb.co.com/r22bTh5W/Gulshan-Internet.jpg"
+                alt="Current Bill"
+                className="rounded-xl h-40 w-full object-cover"
+              />
+              <h3 className="absolute top-30 left-1/2 -translate-x-1/2 bg-sky-500/50 text-2xl font-bold px-1 rounded-lg shadow">
+                Internet
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* recent bill section */}
       <motion.section
         initial={{ opacity: 0, y: 50 }}
