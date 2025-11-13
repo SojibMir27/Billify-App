@@ -9,6 +9,8 @@ Built using **Vite**, **React 19**, **Tailwind CSS 4**, and **Firebase**.
 
 ## https://billify-management.netlify.app/
 
+---
+
 ## 🚀 Features
 
 - 📄 Beautiful invoice generation UI
